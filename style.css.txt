@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff8e6;
+}
+
+/* NỀN ĐỎ VÀNG TẾT */
+.hero {
+    background: linear-gradient(135deg, #ff2e2e, #ff9d00);
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+/* HIỆU ỨNG PHÁO HOA */
+.hero::after {
+    content: "🎆 🎇 🎆";
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    opacity: 0.5;
+    font-size: 25px;
+}
+
+.sub {
+    font-size: 18px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    width: 220px;
+    font-size: 16px;
+}
+
+.input-box button {
+    padding: 12px 20px;
+    background: #ff2e2e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.plan-container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    border-left: 6px solid #ff4d4d;
+    border-radius: 10px;
+    width: 320px;
+    margin: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    color: #d40000;
+    margin-top: 0;
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+.card li {
+    margin-bottom: 8px;
+}

@@ -1,0 +1,99 @@
+<input id="moneyInput" type="number" placeholder="Nhập số tiền..." />
+<button onclick="makePlan()">Tạo kế hoạch</button>
+
+<div id="result"></div>
+
+<script>
+function makePlan() {
+    let total = Number(document.getElementById("moneyInput").value);
+    if (!total || total <= 0) {
+        alert("Vui lòng nhập số tiền hợp lệ!");
+        return;
+    }
+
+    const groups = {
+        "Gia đình & chuẩn bị Tết": {
+            percent: 0.23,
+            items: {
+                "Dọn dẹp & dụng cụ": 0.19,
+                "Bánh mứt": 0.17,
+                "Hoa tươi": 0.22,
+                "Đồ trang trí": 0.16,
+                "Trái cây": 0.26
+            }
+        },
+
+        "Quà biếu & thăm hỏi": {
+            percent: 0.19,
+            items: {
+                "Biếu bố mẹ": 0.28,
+                "Biếu ông bà": 0.27,
+                "Biếu họ hàng": 0.18,
+                "Biếu thầy cô": 0.15,
+                "Tiền thăm hỏi": 0.12
+            }
+        },
+
+        "Lì xì Tết": {
+            percent: 0.21,
+            items: {
+                "Lì xì trẻ em": 0.31,
+                "Lì xì anh chị em": 0.19,
+                "Lì xì bố mẹ": 0.29,
+                "Lì xì bạn bè": 0.14,
+                "Phát sinh": 0.07
+            }
+        },
+
+        "Trang phục & cá nhân": {
+            percent: 0.14,
+            items: {
+                "Áo/quần mới": 0.38,
+                "Giày dép": 0.27,
+                "Cắt tóc & chăm sóc cá nhân": 0.20,
+                "Mỹ phẩm & skincare": 0.15
+            }
+        },
+
+        "Ăn uống – đi chơi": {
+            percent: 0.13,
+            items: {
+                "Nước ngọt/bia": 0.33,
+                "Đồ ăn vặt": 0.29,
+                "Đi chơi": 0.23,
+                "Ăn uống phát sinh": 0.15
+            }
+        },
+
+        "Học tập đầu năm": {
+            percent: 0.10,
+            items: {
+                "Sách vở": 0.37,
+                "Dụng cụ học tập": 0.28,
+                "Đồ dùng trường lớp": 0.20,
+                "Quỹ lớp đầu năm": 0.15
+            }
+        }
+    };
+
+    let html = "";
+
+    for (let groupName in groups) {
+        let group = groups[groupName];
+        let groupMoney = Math.round(total * group.percent);
+
+        html += `<div class='card'>
+                    <h3>${groupName} — ${groupMoney.toLocaleString()} VNĐ</h3>
+                    <ul>`;
+
+        for (let itemName in group.items) {
+            let itemMoney = Math.round(groupMoney * group.items[itemName]);
+            html += `<li>${itemName} — ${itemMoney.toLocaleString()} VNĐ</li>`;
+        }
+
+        html += `</ul></div>`;
+    }
+
+    document.getElementById("result").innerHTML = html;
+}
+</script>
